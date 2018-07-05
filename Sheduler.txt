@@ -1,0 +1,25 @@
+﻿Спрашивать "галочкой" у пользователя - надо ли добавлять метку, что файл зашифрован именно этой программой или нет
+Строка 166: вызвать метод-сообщение и спросить - считывать или нет
+
+Возникла следущая проблема: никак не могу получить картинку (объект Bitmap) из массива byte
+Перепробованы следующие способы:
+
+1)
+
+MemoryStream ms = new MemoryStream(byteArray)
+Bitmap bmp = (Bitmap)Image.FromStream(ms);
+
+2)
+
+ImageConverter ic = new ImageConverter();
+Image img = (Image)ic.ConvertFrom(b);
+Bitmap bmp = new Bitmap(img);
+
+3)
+
+TypeConverter tc = TypeDescriptor.GetConverter(typeof(Bitmap));
+Bitmap bmp = (Bitmap)tc.ConvertFrom(b);
+
+
+
+           
